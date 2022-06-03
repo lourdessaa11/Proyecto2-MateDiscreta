@@ -70,4 +70,27 @@ def encriptación(p,q,e,mensaje):
 
 enc =encriptación(43,59,19,"upload")
 
+def desencriptar(mensaje,d,n,bloques):
+    abc = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+    f_bloques = mensaje.split()
+    resultado = ""
+    for f_bloque in f_bloques:
+        r = str(modpower3(int(f_bloque), d,n))
+        while len(r)<bloques:
+            r = "0"+r
+        for i in range(int(bloques/2)):
+            usar = int(r[2*i:2+2*i])
+            resultado += abc[usar]
+    return resultado
+
+def desencriptacion(p,q,e,mensaje):
+    phi,d = valores(p,q,e)
+    n = llavePublica(p,q)
+    b = bloques(n)
+    mensajeDes = desencriptar(mensaje,n,e,b)
+    return mensajeDes
+
+des = desencriptacion(43,59,19,"2101 0696 0879")
+
 print(enc)
+print(des)
