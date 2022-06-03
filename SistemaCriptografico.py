@@ -92,8 +92,8 @@ def desencriptacion(p,q,e,mensaje):
     mensajeDes = desencriptar(mensaje,d,n,b)
     return mensajeDes
 
-enc =encriptación(43,59,13,"prueba")
-des = desencriptacion(43,59,13,"1637 0245 0197")
+enc =encriptación(53,61,17,"upload")
+des = desencriptacion(43,59,13,"0667 1947 0671")
 
 print(enc)
 print(des)
